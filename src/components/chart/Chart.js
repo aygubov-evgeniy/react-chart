@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Pie } from 'react-chartjs';
+import { Doughnut } from 'react-chartjs';
 
 class Chart extends Component {
   state = {
@@ -16,14 +16,19 @@ class Chart extends Component {
         highlight: "#5AD3D1",
         label: "Green"
       }
-    ]
+    ],
+
+    chartOptions: {
+      segmentShowStroke : false,
+      percentageInnerCutout : 90
+    }
   }
 
   render() {
-    const { chartData } = this.state;
+    const { chartData, chartOptions } = this.state;
 
     return (
-      <Pie data={chartData} />
+      <Doughnut data={chartData} options={chartOptions} width="225" height="225" />
     );
   }
 }

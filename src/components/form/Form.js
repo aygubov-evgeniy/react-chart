@@ -5,8 +5,8 @@ import FormItem from './formItem';
 class Form extends Component {
   render() {
     return (
-      <div>
-        <h1>Form</h1>
+      <div className="add-tag">
+        <p className="title">Add tag</p>
       
         <FormItem title="" />
       </div>
