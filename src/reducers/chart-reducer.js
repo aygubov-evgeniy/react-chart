@@ -1,5 +1,6 @@
 const initialState = {
-  chartData: []
+  chartData: [],
+  addedTags: []
 }
 
 function reducer(state = initialState, action) {
@@ -8,6 +9,18 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         chartData: action.payload
+      }
+
+    case 'ADD_TAG':
+      return {
+        ...state,
+        addedTags: action.payload
+      }
+
+    case 'REMOVE_TAG':
+      return {
+        ...state,
+        addedTags: state.filter( (item, index) => index !== action.index )
       }
     
     default:
