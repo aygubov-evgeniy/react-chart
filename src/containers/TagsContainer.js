@@ -8,7 +8,7 @@ const AddTag = (Component) => {
 			dispatch({ type: 'ADD_TAG'});
 		},
 		remove: () => {
-			dispatch({ type: 'ADD_TAG'});
+			dispatch({ type: 'REMOVE_TAG'});
 		}
 	})
 }

@@ -1,6 +1,7 @@
 const initialState = {
   chartData: [],
-  addedTags: []
+  addedTags: [],
+  isBtnAddDisabled: true
 }
 
 function reducer(state = initialState, action) {
@@ -14,7 +15,7 @@ function reducer(state = initialState, action) {
     case 'ADD_TAG':
       return {
         ...state,
-        addedTags: action.payload
+        addedTags: [...state.addedTags, action.payload]
       }
 
     case 'REMOVE_TAG':

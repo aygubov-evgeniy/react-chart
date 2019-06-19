@@ -1,64 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 
 import BtnAddTag from './btnAddTag';
+import TagsList from './tagsList';
 
-class AddedTags extends Component {
-  render() {
-    return (
-      <div className="added-tags">
-        <p className="title">My tags</p>
+const AddedTags = ({ addedTags }) => {
+  return (
+    <div className="added-tags">
+      <p className="title">My tags</p>
+
+      <TagsList />
       
-        <div className="added-tags__list">
-          <div className="added-tag">
-            <input type="radio" className="added-tag__check"/>
-            <span className="added-tag__title">#work</span>
-          </div>
-
-          <div className="added-tag">
-            <input type="radio" className="added-tag__check"/>
-            <span className="added-tag__title">#work</span>
-          </div>
-
-          <div className="added-tag">
-            <input type="radio" className="added-tag__check"/>
-            <span className="added-tag__title">#work</span>
-          </div>
-
-          <div className="added-tag">
-            <input type="radio" className="added-tag__check"/>
-            <span className="added-tag__title">#work</span>
-          </div>
+      {
+        addedTags.length !== 0 ?
+          (
+            <BtnAddTag />
+          ) :
           
-          <div className="added-tag">
-            <input type="radio" className="added-tag__check"/>
-            <span className="added-tag__title">#work</span>
-          </div>
-
-          <div className="added-tag">
-            <input type="radio" className="added-tag__check"/>
-            <span className="added-tag__title">#work</span>
-          </div>
-
-          <div className="added-tag">
-            <input type="radio" className="added-tag__check"/>
-            <span className="added-tag__title">#work</span>
-          </div>
-
-          <div className="added-tag">
-            <input type="radio" className="added-tag__check"/>
-            <span className="added-tag__title">#work</span>
-          </div>
-
-          <div className="added-tag">
-            <input type="radio" className="added-tag__check"/>
-            <span className="added-tag__title">#work</span>
-          </div>
-        </div>
-
-        <BtnAddTag />
-      </div>
-    );
-  }
+          null
+      }
+    </div>
+  );
 }
 
-export default AddedTags;
+
+// Redux
+const mapStateToProps = (state, ownProps) => ({
+  addedTags: state.addedTags
+});
+
+
+export default connect(mapStateToProps, null)(AddedTags);
