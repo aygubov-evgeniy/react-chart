@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 const SingleTag = ({ name, actionRadio, selectedTag }) => {
@@ -14,7 +14,6 @@ const SingleTag = ({ name, actionRadio, selectedTag }) => {
    				(
    					<div className="added-tag__log-time">
    						<input type="time" className="added-tag__field-time"/>
-   						<button className="added-tag__btn-log">+</button>
    					</div>
    				) : null
    		}

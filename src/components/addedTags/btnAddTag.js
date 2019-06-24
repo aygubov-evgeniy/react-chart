@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const BtnAddTag = ({ isBtnAddDisabled }) => {
+const BtnAddTag = ({ disabled }) => {
   return(
-    <button className="added-tags__btn" disabled={isBtnAddDisabled}>Add</button>
+    <button className="added-tags__btn" disabled={disabled}>Add</button>
   );
 }
 
 // Redux
 const mapStateToProps = (state, ownProps) => ({
-	isBtnAddDisabled: state.isBtnAddDisabled
+  
 })
 
-export default connect(mapStateToProps, null)(BtnAddTag);
+export default connect(null, null)(BtnAddTag);

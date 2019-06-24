@@ -1,26 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import BtnAddTag from './btnAddTag';
 import TagsList from './tagsList';
 
-const AddedTags = ({ addedTags }) => {
-  return (
-    <div className="added-tags">
-      <p className="title">My tags</p>
+class AddedTags extends Component {
+  state = {
+    isBtnAddDisabled: true
+  };
+  
+  updateData = (value) => {
+    this.setState({
+      isBtnAddDisabled: value
+    })
+  }
 
-      <TagsList />
-      
-      {
-        addedTags.length !== 0 ?
-          (
-            <BtnAddTag />
-          ) :
-          
-          null
-      }
-    </div>
-  );
+  render() {
+    const { addedTags } = this.props;
+    const { isBtnAddDisabled } = this.state;
+
+    return (
+      <div className="added-tags">
+        <p className="title">My tags</p>
+  
+        <TagsList updateData={this.updateData} />
+        
+        {
+          addedTags.length !== 0 ?
+            (
+              <BtnAddTag disabled={isBtnAddDisabled} />
+            ) :
+            
+            null
+        }
+      </div>
+    );
+  }
 }
 
 

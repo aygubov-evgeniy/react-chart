@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import store from '../../redux/store';
-import _ from 'lodash';
 
 import SingleTag from './singleTag';
 
@@ -15,6 +14,8 @@ class TagsList extends Component {
 	}
 
 	handleTagChange = (e) => {
+    this.props.updateData(false);
+    
 		this.setState({
 			selectedTag: e.target.value
 		})

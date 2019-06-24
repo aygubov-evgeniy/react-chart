@@ -1,7 +1,6 @@
 const initialState = {
   chartData: [],
-  addedTags: [],
-  isBtnAddDisabled: true
+  addedTags: []
 }
 
 function reducer(state = initialState, action) {

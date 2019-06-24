@@ -163,8 +163,8 @@
 .added-tag__log-time{
   position: absolute;
   content: '';
-  right: 0;
   bottom: 0;
+  right: 10px;
 }
 .added-tag__field-time{
   width: 90px;
