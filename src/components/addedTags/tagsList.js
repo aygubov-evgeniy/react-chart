@@ -9,21 +9,23 @@ class TagsList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			selectedTag: ''
+      selectedTag: '',
+      selectedTagId: '',
+      selectedTagTime: 0
 		}
 	}
 
-	handleTagChange = (e) => {
-    this.props.updateData(false);
-    
-		this.setState({
-			selectedTag: e.target.value
+	handleTagChange = (id, value) => {
+    this.setState({
+      selectedTagId: id,
+      selectedTag: value,
+      selectedTagTime: 0
 		})
 	}
 
-	handleTimeChange = (e) => {
+	handleTimeChange = (time) => {
 		this.setState({
-			selectedTag: e.target.value
+      selectedTagTime: time
 		})
 	}
 
@@ -35,7 +37,7 @@ class TagsList extends Component {
 	}
 
 	render() {
-		const { addedTags, addLoggedTag } = this.props;
+		const { addedTags } = this.props;
 		const { selectedTag } = this.state;
 
 		return(
@@ -43,9 +45,9 @@ class TagsList extends Component {
 				(
 					<div className="added-tags__list">
 						{
-							addedTags.map((item, index) => {
+							addedTags.map((item) => {
 								return(
-						      <SingleTag key={item.id} name={item.name} selectedTag={selectedTag} actionRadio={this.handleTagChange} actionTimeChange={this.handleTimeChange} actionAdd={this.addLoggedTag} />
+						      <SingleTag key={item.id} id={item.id} name={item.name} selectedTag={selectedTag} actionRadio={this.handleTagChange} actionTimeChange={this.handleTimeChange} />
 								)
 					    })
 						}
