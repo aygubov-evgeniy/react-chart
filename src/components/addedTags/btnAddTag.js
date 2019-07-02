@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const BtnAddTag = ({ disabled }) => {
+const BtnAddTag = ({ disabled, action }) => {
   return(
-    <button className="added-tags__btn" disabled={disabled}>Add</button>
+    <button className="added-tags__btn" disabled={disabled} onClick={action}>Add</button>
   );
 }
 

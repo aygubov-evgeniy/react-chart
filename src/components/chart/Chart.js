@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import { Doughnut } from 'react-chartjs';
 
 class Chart extends Component {
@@ -25,7 +27,8 @@ class Chart extends Component {
   }
 
   render() {
-    const { chartData, chartOptions } = this.state;
+    const { chartOptions } = this.state;
+    const { chartData } = this.props;
 
     return (
       <Doughnut data={chartData} options={chartOptions} width="225" height="225" />
@@ -33,4 +36,9 @@ class Chart extends Component {
   }
 }
 
-export default Chart;
+// Redux
+const mapStateToProps = (state, ownProps) => ({
+  chartData: state.chartData
+})
+
+export default connect(mapStateToProps, null)(Chart);

@@ -33,7 +33,7 @@ class SingleTag extends Component {
       <div className="added-tag">
         <label className="added-tag__label">
           <input type="radio" value={name} name="tag" className="added-tag__radio" onChange={(e) => actionRadio(id, e.target.value)}/>
-           <span className="added-tag__title">{name}</span>
+          <span className="added-tag__title">{name}</span>
         </label>
   
          {

@@ -8,7 +8,7 @@ function reducer(state = initialState, action) {
     case 'ADD_DATA':
       return {
         ...state,
-        chartData: action.payload
+        chartData: [...state.chartData, action.payload]
       }
 
     case 'ADD_TAG':
